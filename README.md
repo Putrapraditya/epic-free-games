@@ -31,5 +31,3 @@ REST API for providing list of current FREE games in Epic Games Store
   }
 }
 ```
-
-LIVE API: `https://efg.cipta.dev`
