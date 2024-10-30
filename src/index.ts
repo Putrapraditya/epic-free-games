@@ -13,7 +13,7 @@ cron.schedule('*/10 * * * *', () => {
     getGames()
 })
 
-app.get("/", async (req: Request, res: Response) => {
+app.get("/api/getgame", async (req: Request, res: Response) => {
   try {
     const { lastUpdate, games } = await db.getData("/efg");
 
