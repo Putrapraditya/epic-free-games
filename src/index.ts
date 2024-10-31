@@ -3,7 +3,7 @@ import cron from "node-cron";
 
 // modules
 import { timestamp } from "./modules/timestamp";
-import { getGames, db } from "./modules/get-games";
+import { getGames } from "./modules/get-games";
 import { config } from "./config/config";
 
 const app = express();
@@ -15,9 +15,8 @@ cron.schedule('*/10 * * * *', () => {
 
 app.get("/api/getgame", async (req: Request, res: Response) => {
   try {
-    const { lastUpdate, games } = await db.getData("/efg");
+    const games = await getGames();
 
-    // Pastikan games tidak null atau undefined
     const totalGames = games ? games.length : 0;
 
     res.status(200).send({
@@ -28,7 +27,7 @@ app.get("/api/getgame", async (req: Request, res: Response) => {
       },
       meta: {
         total: totalGames,
-        lastUpdate,
+        lastUpdate: new Date(),
       },
     });
   } catch (err) {
