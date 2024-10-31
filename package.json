@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
-    "build": "tsup src/* --minify"
+    "build": "tsup src/* --minify",
+     "postinstall": "npx playwright install"
   },
   "author": "",
   "license": "ISC",
