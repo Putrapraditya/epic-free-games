@@ -35,7 +35,7 @@ app.get("/api/getgame", async (req: Request, res: Response) => {
     console.error("Error saat mendapatkan data:", err);
     res.status(500).send({
       code: 500,
-      message: "Something went wrong when getting requested resource.",
+      message: `Something went wrong when getting requested resource. Error: ${err.message}`,
       games: null,
     });
   }
